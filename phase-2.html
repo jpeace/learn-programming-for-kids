@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phase 2: Choices & Loops (Build Real Game Logic!)</title>
+  <meta name="description" content="A kid-friendly Phase 2 Python guide to learn if/elif/else and loops (for/while) with fun missions and mini games." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#4b5563;
+      --card:#f9fafb;
+      --border:#e5e7eb;
+      --accent:#2563eb;
+      --codebg:#0b1020;
+      --codefg:#e5e7eb;
+      --warn:#b45309;
+      --good:#047857;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    header{
+      padding:2.25rem 1rem 1.25rem;
+      border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg, #eff6ff 0%, #ffffff 65%);
+    }
+    .container{max-width:900px;margin:0 auto;padding:0 1rem}
+    h1{margin:0 0 .5rem;font-size:2rem;line-height:1.2}
+    .subtitle{margin:0;color:var(--muted);font-size:1.05rem}
+    main{padding:1.5rem 0 3rem}
+    .toc{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1rem 1rem .75rem;
+      margin:1rem 0 1.75rem;
+    }
+    .toc h2{font-size:1.1rem;margin:.1rem 0 .5rem}
+    .toc ol{margin:.25rem 0 .5rem;padding-left:1.25rem}
+    .toc a{color:var(--accent);text-decoration:none}
+    .toc a:hover{text-decoration:underline}
+    section{
+      margin:1.5rem 0;
+      padding:1.25rem 1.25rem 1rem;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#fff;
+    }
+    section h2{
+      margin:.1rem 0 .75rem;
+      font-size:1.4rem;
+      line-height:1.25;
+    }
+    .callout{
+      border-left:6px solid var(--accent);
+      background:var(--card);
+      padding:.85rem 1rem;
+      border-radius:12px;
+      margin:1rem 0;
+      color:var(--text);
+    }
+    .note{
+      border-left:6px solid var(--good);
+      background:#ecfdf5;
+      padding:.85rem 1rem;
+      border-radius:12px;
+      margin:1rem 0;
+    }
+    .warning{
+      border-left:6px solid var(--warn);
+      background:#fffbeb;
+      padding:.85rem 1rem;
+      border-radius:12px;
+      margin:1rem 0;
+    }
+    ul{margin:.4rem 0 .8rem;padding-left:1.2rem}
+    li{margin:.25rem 0}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace}
+    pre{
+      background:var(--codebg);
+      color:var(--codefg);
+      padding:1rem;
+      border-radius:14px;
+      overflow:auto;
+      border:1px solid #111827;
+      margin:.75rem 0 1rem;
+    }
+    pre code{color:inherit}
+    .pill{
+      display:inline-block;
+      padding:.1rem .55rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--card);
+      color:var(--muted);
+      font-size:.85rem;
+      margin-left:.4rem;
+      vertical-align:middle;
+    }
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:1rem;
+      margin-top:.75rem;
+    }
+    @media(min-width:780px){
+      .two-col{grid-template-columns: 1fr 1fr;}
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1rem 1rem .75rem;
+      background:var(--card);
+    }
+    .card h3{margin:.1rem 0 .4rem;font-size:1.05rem}
+    .checklist{
+      margin:.75rem 0 0;
+      padding-left:0;
+      list-style:none;
+    }
+    .checklist li{
+      margin:.4rem 0;
+      padding-left:1.9rem;
+      position:relative;
+    }
+    .checklist li::before{
+      content:"✅";
+      position:absolute;
+      left:0;
+      top:0;
+    }
+    .mini{
+      font-size:.95rem;
+      color:var(--muted);
+      margin-top:.25rem;
+    }
+    footer{
+      border-top:1px solid var(--border);
+      padding:1.5rem 1rem 2.5rem;
+      color:var(--muted);
+      background:#fff;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Phase 2: Choices & Loops (Build Real Game Logic!)</h1>
+      <p class="subtitle">
+        Welcome back, coder! In Phase 2 you’ll learn how to make Python
+        <strong>choose</strong> and <strong>repeat</strong> — the secret powers behind games.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="callout">
+      <strong>Phase 2 Mission:</strong> Learn <code>if</code>/<code>elif</code>/<code>else</code> (choices) and
+      <code>for</code>/<code>while</code> (loops) so your programs can react and run again and again!
+      <div class="mini">Do 6 missions. Each mission takes about <strong>20–40 minutes</strong>.</div>
+    </div>
+
+    <section id="setup">
+      <h2>Before You Start</h2>
+      <ul>
+        <li>Use the same website as Phase 1 (Trinket or Replit).</li>
+        <li>Make a new Python file for each mission (or keep them in one file and separate them with comments).</li>
+        <li>Remember: bugs are normal. If you get stuck after 3 tries, ask an adult helper.</li>
+      </ul>
+      <div class="note">
+        <strong>Scratch connection:</strong> This whole phase is like learning
+        <em>If/Else</em> blocks and <em>Repeat</em> blocks — but in typed form.
+      </div>
+    </section>
+
+    <section class="toc" aria-label="Table of contents">
+      <h2>Jump to a Mission</h2>
+      <ol>
+        <li><a href="#mission-1">Mission 1: Choices with <code>if</code> ✅</a></li>
+        <li><a href="#mission-2">Mission 2: Two-Path Decisions (<code>if</code>/<code>else</code>) 🔀</a></li>
+        <li><a href="#mission-3">Mission 3: Multiple Choices (<code>elif</code>) 🎭</a></li>
+        <li><a href="#mission-4">Mission 4: Repeat with <code>for</code> 🔁</a></li>
+        <li><a href="#mission-5">Mission 5: Keep Going with <code>while</code> 🌀</a></li>
+        <li><a href="#mission-6">Mission 6: Build a Mini Game 🎮</a></li>
+      </ol>
+      <p class="mini">Tip: Run your code often. Tiny changes + lots of testing = fast learning.</p>
+    </section>
+
+    <section id="mission-1">
+      <h2>Mission 1: Choices with <code>if</code> ✅ <span class="pill">if</span></h2>
+      <p>
+        An <code>if</code> statement means: “Only do this <strong>if</strong> something is true.”
+        It’s like a decision gate in a game.
+      </p>
+
+      <pre><code>answer = input("Do you like pizza? (yes/no) ")
+
+if answer == "yes":
+    print("Me too! 🍕")</code></pre>
+
+      <div class="note">
+        <strong>Super important:</strong> In Python, the lines inside the <code>if</code> must be indented.
+        (That means they start with spaces.)
+      </div>
+
+      <div class="card">
+        <h3>🎯 Challenge: Secret Word</h3>
+        <p>Ask for a secret word. If it’s correct, print “Access granted!”</p>
+        <p class="mini">Hint: Use <code>==</code> to compare. Example: <code>if word == "dragon":</code></p>
+      </div>
+    </section>
+
+    <section id="mission-2">
+      <h2>Mission 2: Two-Path Decisions 🔀 <span class="pill">if / else</span></h2>
+      <p>
+        <code>else</code> means: “If it’s NOT true, do this instead.”
+        Now your program always chooses a path.
+      </p>
+
+      <pre><code>weather = input("Is it raining? (yes/no) ")
+
+if weather == "yes":
+    print("Bring an umbrella! ☔")
+else:
+    print("No umbrella needed! 😎")</code></pre>
+
+      <div class="warning">
+        <strong>Common bug:</strong> Using <code>=</code> instead of <code>==</code>.
+        <br />
+        <code>=</code> puts something in a variable. <code>==</code> compares two things.
+      </div>
+
+      <div class="card">
+        <h3>🎯 Challenge: Door Choice</h3>
+        <p>Ask: “Choose a door: left or right.”</p>
+        <p>If they pick left, something happens. If right, something else happens.</p>
+        <p class="mini">Tip: Check exactly <code>"left"</code> or <code>"right"</code>.</p>
+      </div>
+    </section>
+
+    <section id="mission-3">
+      <h2>Mission 3: Multiple Choices 🎭 <span class="pill">elif</span></h2>
+      <p>
+        What if there are <strong>more than 2 choices</strong>? That’s when you use <code>elif</code>
+        (it means “else if”).
+      </p>
+
+      <pre><code>pet = input("Pick a pet: cat, dog, or lizard: ")
+
+if pet == "cat":
+    print("Meow! 🐱")
+elif pet == "dog":
+    print("Woof! 🐶")
+elif pet == "lizard":
+    print("Sssss! 🦎")
+else:
+    print("That pet is new to me!")</code></pre>
+
+      <div class="note">
+        <strong>Scratch connection:</strong> This is like stacking lots of “if/else” blocks.
+      </div>
+
+      <div class="card">
+        <h3>🎯 Challenge: Mood Machine</h3>
+        <p>Ask: “How are you feeling? happy / sad / bored”</p>
+        <p>Respond differently for each mood.</p>
+        <p class="mini">Bonus: Add a 4th mood!</p>
+      </div>
+    </section>
+
+    <section id="mission-4">
+      <h2>Mission 4: Repeat with <code>for</code> 🔁 <span class="pill">for</span></h2>
+      <p>
+        A loop means: “Do this again and again.”
+        A <code>for</code> loop is great when you know how many times to repeat.
+      </p>
+
+      <pre><code>for i in range(5):
+    print("High five!", i)</code></pre>
+
+      <div class="note">
+        <strong>What is <code>range(5)</code>?</strong> It means “count 0,1,2,3,4” (that’s 5 times).
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Try This: Countdown</h3>
+          <pre><code>for n in range(5, 0, -1):
+    print(n)
+print("BLAST OFF! 🚀")</code></pre>
+          <p class="mini">This counts down: 5,4,3,2,1</p>
+        </div>
+
+        <div class="card">
+          <h3>🎯 Challenge: Name Chant</h3>
+          <p>Ask for a name, then print it 10 times like a cheer.</p>
+          <p class="mini">Hint: Use <code>for i in range(10):</code></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission-5">
+      <h2>Mission 5: Keep Going with <code>while</code> 🌀 <span class="pill">while</span></h2>
+      <p>
+        A <code>while</code> loop repeats as long as something is true.
+        It’s perfect when you don’t know how many tries it will take.
+      </p>
+
+      <pre><code>password = ""
+
+while password != "unicorn":
+    password = input("Type the password: ")
+
+print("Correct! Welcome! 🦄")</code></pre>
+
+      <div class="warning">
+        <strong>Important:</strong> A <code>while</code> loop can run forever if the condition never becomes false.
+        If your program “gets stuck,” check your condition.
+      </div>
+
+      <div class="card">
+        <h3>🎯 Challenge: Keep Asking</h3>
+        <p>Ask: “What is 3 + 4?”</p>
+        <p>Keep asking until they type the correct answer.</p>
+        <p class="mini">Hint: The answer should be a number. Use <code>int()</code> on the input.</p>
+      </div>
+    </section>
+
+    <section id="mission-6">
+      <h2>Mission 6: Build a Mini Game 🎮 <span class="pill">capstone</span></h2>
+      <p>
+        Time to combine choices + loops into a real mini game.
+        Pick one of these and build it!
+      </p>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Option A: “Guess the Number”</h3>
+          <ul>
+            <li>Pick a secret number (start with a fixed number like 7).</li>
+            <li>Keep asking for guesses using a <code>while</code> loop.</li>
+            <li>If the guess is too high, say “Too high!”</li>
+            <li>If too low, say “Too low!”</li>
+            <li>If correct, celebrate and stop.</li>
+          </ul>
+          <p class="mini">Bonus: Use <code>random.randint(1, 10)</code> to pick the secret number.</p>
+        </div>
+
+        <div class="card">
+          <h3>Option B: “Tiny Adventure Game”</h3>
+          <ul>
+            <li>Ask the player to choose a path (forest / cave / river).</li>
+            <li>Use <code>if</code> / <code>elif</code> / <code>else</code> for outcomes.</li>
+            <li>Let them play again with a <code>while</code> loop (yes/no).</li>
+          </ul>
+          <p class="mini">Bonus: Add a “score” variable that changes based on choices.</p>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Pro tip:</strong> Don’t try to build the whole game at once.
+        Build one tiny part, run it, then add the next part.
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>🎯 Challenge: Make It Yours</h3>
+        <p>Add at least <strong>2 extra features</strong> to your mini game, like:</p>
+        <ul>
+          <li>Score</li>
+          <li>Limited number of tries</li>
+          <li>Different endings</li>
+          <li>Play again option</li>
+          <li>A funny “game over” message</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="bugs">
+      <h2>Bug Busters for Phase 2 🐛🛠️</h2>
+      <p>If things break, try this checklist:</p>
+      <ul class="checklist">
+        <li>Check indentation (spaces) under <code>if</code>, <code>else</code>, <code>for</code>, and <code>while</code>.</li>
+        <li>Use <code>==</code> to compare, not <code>=</code>.</li>
+        <li>If you compare words, make sure spelling matches (like <code>"yes"</code> vs <code>"Yes"</code>).</li>
+        <li>If you used <code>int()</code>, make sure the input is a number.</li>
+        <li>Fix one thing and run again.</li>
+      </ul>
+      <div class="note">
+        If you’re stuck after 3 tries, ask your adult helper. Then come back and try again — you’re building brain muscles!
+      </div>
+    </section>
+
+    <section id="done">
+      <h2>“I’m Done!” How to Know You Finished Phase 2 🏁</h2>
+      <p>You finished Phase 2 if you can do these without help:</p>
+      <ul>
+        <li>Use <code>if</code> and <code>else</code> to make choices</li>
+        <li>Use <code>elif</code> for more than 2 choices</li>
+        <li>Use a <code>for</code> loop to repeat something a certain number of times</li>
+        <li>Use a <code>while</code> loop to keep asking until something happens</li>
+        <li>Build a mini game that uses both choices and loops</li>
+      </ul>
+      <div class="callout">
+        If you can do that… you’re now a <strong>game-logic coder</strong>. 🎮🐍✨
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Next up (Phase 3):</strong> random numbers, score systems, and <code>def</code> (functions) so you can build bigger games with less repeated code.</p>
+      <p class="mini">Tip: The best coders test, break things, fix them, and keep going.</p>
+    </div>
+  </footer>
+</body>
+</html>
