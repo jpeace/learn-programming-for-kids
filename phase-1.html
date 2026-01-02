@@ -1,0 +1,415 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phase 1: Python Adventure (For Scratch Coders Who Are Ready for Text!)</title>
+  <meta name="description" content="A kid-friendly Phase 1 Python guide for Scratch coders (ages 9–11) to learn print, math, variables, input, and int() through six missions." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#4b5563;
+      --card:#f9fafb;
+      --border:#e5e7eb;
+      --accent:#2563eb;
+      --codebg:#0b1020;
+      --codefg:#e5e7eb;
+      --warn:#b45309;
+      --good:#047857;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    header{
+      padding:2.25rem 1rem 1.25rem;
+      border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg, #eff6ff 0%, #ffffff 65%);
+    }
+    .container{max-width:900px;margin:0 auto;padding:0 1rem}
+    h1{margin:0 0 .5rem;font-size:2rem;line-height:1.2}
+    .subtitle{margin:0;color:var(--muted);font-size:1.05rem}
+    main{padding:1.5rem 0 3rem}
+    .toc{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1rem 1rem .75rem;
+      margin:1rem 0 1.75rem;
+    }
+    .toc h2{font-size:1.1rem;margin:.1rem 0 .5rem}
+    .toc ol{margin:.25rem 0 .5rem;padding-left:1.25rem}
+    .toc a{color:var(--accent);text-decoration:none}
+    .toc a:hover{text-decoration:underline}
+    section{
+      margin:1.5rem 0;
+      padding:1.25rem 1.25rem 1rem;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#fff;
+    }
+    section h2{
+      margin:.1rem 0 .75rem;
+      font-size:1.4rem;
+      line-height:1.25;
+    }
+    .callout{
+      border-left:6px solid var(--accent);
+      background:var(--card);
+      padding:.85rem 1rem;
+      border-radius:12px;
+      margin:1rem 0;
+      color:var(--text);
+    }
+    .callout strong{color:var(--accent)}
+    .note{
+      border-left:6px solid var(--good);
+      background:#ecfdf5;
+      padding:.85rem 1rem;
+      border-radius:12px;
+      margin:1rem 0;
+    }
+    .warning{
+      border-left:6px solid var(--warn);
+      background:#fffbeb;
+      padding:.85rem 1rem;
+      border-radius:12px;
+      margin:1rem 0;
+    }
+    ul{margin:.4rem 0 .8rem;padding-left:1.2rem}
+    li{margin:.25rem 0}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace}
+    pre{
+      background:var(--codebg);
+      color:var(--codefg);
+      padding:1rem;
+      border-radius:14px;
+      overflow:auto;
+      border:1px solid #111827;
+      margin:.75rem 0 1rem;
+    }
+    pre code{color:inherit}
+    .pill{
+      display:inline-block;
+      padding:.1rem .55rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--card);
+      color:var(--muted);
+      font-size:.85rem;
+      margin-left:.4rem;
+      vertical-align:middle;
+    }
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:1rem;
+      margin-top:.75rem;
+    }
+    @media(min-width:780px){
+      .two-col{grid-template-columns: 1fr 1fr;}
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1rem 1rem .75rem;
+      background:var(--card);
+    }
+    .card h3{margin:.1rem 0 .4rem;font-size:1.05rem}
+    .checklist{
+      margin:.75rem 0 0;
+      padding-left:0;
+      list-style:none;
+    }
+    .checklist li{
+      margin:.4rem 0;
+      padding-left:1.9rem;
+      position:relative;
+    }
+    .checklist li::before{
+      content:"✅";
+      position:absolute;
+      left:0;
+      top:0;
+    }
+    footer{
+      border-top:1px solid var(--border);
+      padding:1.5rem 1rem 2.5rem;
+      color:var(--muted);
+      background:#fff;
+    }
+    a.btn{
+      display:inline-block;
+      padding:.6rem 1rem;
+      border-radius:12px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      margin-top:.5rem;
+    }
+    a.btn:hover{filter:brightness(0.95)}
+    .small{font-size:.95rem;color:var(--muted)}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Phase 1: Python Adventure (For Scratch Coders Who Are Ready for Text!)</h1>
+      <p class="subtitle">
+        Hi! If you’ve used <strong>Scratch</strong>, you already know how to code. 🎉
+        Now you’re going to learn <strong>Python</strong> — the typing kind of coding.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="callout">
+      <strong>Your Mission:</strong> Complete 6 mini “missions” to learn the basics of Python: <code>print()</code>, math,
+      variables, <code>input()</code>, and <code>int()</code>.
+      An adult can help if you get stuck — but you’ll do most of it yourself!
+    </div>
+
+    <section id="rules">
+      <h2>Your Rules for Success ✅</h2>
+      <ul>
+        <li><strong>Small steps win.</strong> Do a little each day.</li>
+        <li><strong>Mistakes are normal.</strong> Bugs mean you’re learning.</li>
+        <li><strong>Run your code a LOT.</strong> Try, test, change, test again.</li>
+        <li><strong>Change things on purpose.</strong> That’s how you learn faster.</li>
+      </ul>
+    </section>
+
+    <section id="setup">
+      <h2>What You’ll Need</h2>
+      <p>Use a browser website to run Python (no installing needed). Pick one:</p>
+      <ul>
+        <li><strong>Trinket.io (Python)</strong> — super beginner friendly</li>
+        <li><strong>Replit (Python)</strong> — also great</li>
+      </ul>
+      <p class="small">Open one in your browser and create a new Python project.</p>
+    </section>
+
+    <section class="toc" aria-label="Table of contents">
+      <h2>Jump to a Mission</h2>
+      <ol>
+        <li><a href="#mission-1">Mission 1: Make Python Talk 🗣️</a></li>
+        <li><a href="#mission-2">Mission 2: Python Can Do Math 🧮</a></li>
+        <li><a href="#mission-3">Mission 3: Variables (Like Scratch!) 📦</a></li>
+        <li><a href="#mission-4">Mission 4: Make Python Ask You Questions ❓</a></li>
+        <li><a href="#mission-5">Mission 5: Make an “About Me” Program ⭐</a></li>
+        <li><a href="#mission-6">Mission 6: Level Up — “Next Year You” 🔮</a></li>
+      </ol>
+      <p class="small">Tip: Each mission takes about <strong>20–35 minutes</strong>.</p>
+    </section>
+
+    <section id="mission-1">
+      <h2>Mission 1: Make Python Talk 🗣️ <span class="pill">print()</span></h2>
+      <p>Your new magic spell is <code>print()</code>. It makes Python “say” something.</p>
+      <pre><code>print("Hello!")</code></pre>
+
+      <p><strong>Try this:</strong></p>
+      <pre><code>print("Hello!")
+print("My name is ...")
+print("I like ...")</code></pre>
+
+      <div class="note">
+        <strong>Remember:</strong> Words need quotes like <code>"this"</code>.
+      </div>
+
+      <div class="card">
+        <h3>🎯 Challenge: Tiny Comedy Show</h3>
+        <p>Make Python tell a joke using 3–5 lines of <code>print()</code>.</p>
+      </div>
+    </section>
+
+    <section id="mission-2">
+      <h2>Mission 2: Python Can Do Math 🧮 <span class="pill">numbers</span></h2>
+      <p>Python loves math. Try these:</p>
+      <pre><code>print(5 + 3)
+print(10 - 4)
+print(6 * 2)
+print(20 / 5)</code></pre>
+
+      <p><strong>Now try your own:</strong></p>
+      <ul>
+        <li>What is <code>7 + 8</code>?</li>
+        <li>What is <code>12 * 3</code>?</li>
+      </ul>
+
+      <div class="note">
+        <strong>Tip:</strong> Numbers do <em>not</em> need quotes.
+      </div>
+
+      <div class="card">
+        <h3>🎯 Challenge: Math Wizard</h3>
+        <p>Write 5 math <code>print()</code> lines. Before you run it, guess the answers like a wizard predicting the future.</p>
+      </div>
+    </section>
+
+    <section id="mission-3">
+      <h2>Mission 3: Variables (Like Scratch!) 📦 <span class="pill">variables</span></h2>
+      <p>A <strong>variable</strong> is a labeled box that stores something (like <code>score</code> in Scratch).</p>
+
+      <pre><code>score = 10
+print(score)
+
+score = score + 5
+print(score)</code></pre>
+
+      <p><strong>Try changing it:</strong></p>
+      <ul>
+        <li>Start score at 0</li>
+        <li>Add 100 points</li>
+        <li>Subtract 20 points</li>
+      </ul>
+
+      <div class="note">
+        <strong>Tip:</strong> <code>score = score + 1</code> means “increase score by 1”.
+      </div>
+
+      <div class="card">
+        <h3>🎯 Challenge: Score Game</h3>
+        <p>Make a score that changes 3 times, then print the final score.</p>
+      </div>
+    </section>
+
+    <section id="mission-4">
+      <h2>Mission 4: Make Python Ask You Questions ❓ <span class="pill">input()</span></h2>
+      <p>Now Python can talk <em>to you</em> and wait for your answer.</p>
+
+      <pre><code>name = input("What is your name? ")
+print("Hello", name)</code></pre>
+
+      <p><strong>Try more questions:</strong></p>
+      <pre><code>animal = input("What is your favorite animal? ")
+print("Nice! I like", animal, "too!")</code></pre>
+
+      <div class="note">
+        <strong>Tip:</strong> <code>input()</code> always gives you words (text).
+      </div>
+
+      <div class="card">
+        <h3>🎯 Challenge: Interview Bot</h3>
+        <p>Make Python ask 3 questions and respond after each one (favorite game, food, superpower, etc.).</p>
+      </div>
+    </section>
+
+    <section id="mission-5">
+      <h2>Mission 5: Make an “About Me” Program ⭐ <span class="pill">combine skills</span></h2>
+      <p>Time to combine everything you’ve learned so far.</p>
+
+      <pre><code>name = input("What is your name? ")
+age = input("How old are you? ")
+
+print("----- ABOUT ME -----")
+print("Name:", name)
+print("Age:", age)
+print("--------------------")</code></pre>
+
+      <p><strong>Make it yours!</strong> Add things like:</p>
+      <ul>
+        <li>favorite hobby</li>
+        <li>favorite show/book</li>
+        <li>favorite food</li>
+        <li>dream pet</li>
+      </ul>
+
+      <div class="card">
+        <h3>🎯 Challenge: Make it Pretty</h3>
+        <p>Use lines like this to make it look cool:</p>
+        <pre><code>print("********************")</code></pre>
+      </div>
+    </section>
+
+    <section id="mission-6">
+      <h2>Mission 6: Level Up — “Next Year You” 🔮 <span class="pill">int()</span></h2>
+      <p>
+        This one feels like “real programming.” We’ll turn your age into a number so we can do math with it.
+      </p>
+
+      <pre><code>age = input("How old are you? ")
+next_year = int(age) + 1
+print("Next year you will be", next_year)</code></pre>
+
+      <div class="warning">
+        <strong>Important:</strong> <code>int()</code> only works if you type a real number (like <code>10</code>).
+      </div>
+
+      <div class="card">
+        <h3>🎯 Challenge: Future Machine</h3>
+        <p>Ask for your current age and how many years into the future (like 5). Then tell the future age.</p>
+        <p class="small"><strong>Hint:</strong> You’ll need <code>int()</code> twice.</p>
+      </div>
+    </section>
+
+    <section id="bugs">
+      <h2>Bug Busters: What To Do When It Breaks 🐛🛠️</h2>
+      <p>If you get an error, do this checklist:</p>
+      <ul class="checklist">
+        <li>Read the error message.</li>
+        <li>Look for missing quotes <code>"</code> or missing parentheses <code>)</code>.</li>
+        <li>Check spelling: <code>print</code> and <code>input</code> must be spelled exactly.</li>
+        <li>If you used <code>int()</code>, make sure you typed a number.</li>
+        <li>Fix <strong>one thing</strong> and run again.</li>
+      </ul>
+      <div class="note">
+        If you’re stuck after 3 tries, ask your adult helper. That’s part of the plan.
+      </div>
+    </section>
+
+    <section id="done">
+      <h2>“I’m Done!” How to Know You Finished Phase 1 🏁</h2>
+      <p>You finished Phase 1 if you can do these without help:</p>
+      <ul>
+        <li>Use <code>print()</code> to show messages</li>
+        <li>Do math with <code>+ - * /</code></li>
+        <li>Make a variable and change it</li>
+        <li>Ask questions using <code>input()</code></li>
+        <li>Use <code>int()</code> to turn age into a number</li>
+      </ul>
+      <div class="callout">
+        If you can do that… you’re officially a Python coder. 🐍✨
+      </div>
+    </section>
+
+    <section id="bonus">
+      <h2>Bonus Missions (Only If You Want!) 🎁</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3>Bonus 1: Emoji Printer</h3>
+          <pre><code>print("  ^_^  ")
+print(" (   ) ")
+print("  ---  ")</code></pre>
+        </div>
+        <div class="card">
+          <h3>Bonus 2: Name Art</h3>
+          <pre><code>print("J A R R O D")</code></pre>
+          <p class="small">Change it to your own name!</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>Bonus 3: Remix Your Old Scratch Idea</h3>
+        <p>Think of a Scratch project you made. Can you make a text version in Python?</p>
+        <p class="small">If you want hints, ask an adult helper (or ask me for tiny hints).</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Next:</strong> Phase 2 will teach you <code>if</code> statements (choices), loops (repeating), and game logic.</p>
+      <p class="small">Tip for grown-ups: help by asking questions, not by taking the keyboard.</p>
+    </div>
+  </footer>
+</body>
+</html>
+```
