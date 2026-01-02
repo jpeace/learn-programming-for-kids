@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python Adventure — Learning Path</title>
+  <meta name="description" content="A kid-friendly Python learning path with links to each phase." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#4b5563;
+      --card:#f9fafb;
+      --border:#e5e7eb;
+      --accent:#2563eb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    header{
+      padding:2rem 1rem 1.25rem;
+      border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg, #eff6ff 0%, #ffffff 65%);
+    }
+    .container{max-width:900px;margin:0 auto;padding:0 1rem}
+    h1{margin:0 0 .5rem;font-size:2rem;line-height:1.2}
+    .subtitle{margin:0;color:var(--muted);font-size:1.05rem}
+    main{padding:1.5rem 0 3rem}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:1rem;
+      margin-top:1rem;
+    }
+    @media(min-width:720px){
+      .grid{grid-template-columns: 1fr 1fr;}
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:1.1rem 1.1rem 1rem;
+      background:var(--card);
+    }
+    .card h2{
+      margin:.1rem 0 .35rem;
+      font-size:1.25rem;
+      line-height:1.25;
+    }
+    .card p{margin:.25rem 0 .75rem;color:var(--muted)}
+    .status{
+      display:inline-block;
+      font-size:.85rem;
+      padding:.12rem .55rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--muted);
+      margin-left:.35rem;
+      vertical-align:middle;
+    }
+    a.btn{
+      display:inline-block;
+      padding:.55rem .9rem;
+      border-radius:12px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+    }
+    a.btn:hover{filter:brightness(0.95)}
+    .disabled{
+      opacity:.6;
+      cursor:not-allowed;
+    }
+    footer{
+      border-top:1px solid var(--border);
+      padding:1.25rem 1rem 2.5rem;
+      color:var(--muted);
+      background:#fff;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Python Adventure — Learning Path</h1>
+      <p class="subtitle">Pick a phase to start learning Python (kid-friendly and Scratch-to-Python style).</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <div class="card">
+        <h2>Phase 1: From Scratch to Text 🐍 <span class="status">Available</span></h2>
+        <p>Learn <code>print()</code>, math, variables, <code>input()</code>, and <code>int()</code> through 6 fun missions.</p>
+        <a class="btn" href="phase-1.html">Start Phase 1</a>
+      </div>
+
+      <div class="card">
+        <h2>Phase 2: Choices & Loops 🎮 <span class="status">Coming soon</span></h2>
+        <p>Learn <code>if</code>, <code>else</code>, and loops to build real game logic.</p>
+        <a class="btn disabled" href="#" aria-disabled="true" tabindex="-1">Not yet</a>
+      </div>
+
+      <div class="card">
+        <h2>Phase 3: Games & Functions 🧩 <span class="status">Coming soon</span></h2>
+        <p>Make bigger games and learn <code>def</code> (functions) to reuse code.</p>
+        <a class="btn disabled" href="#" aria-disabled="true" tabindex="-1">Not yet</a>
+      </div>
+
+      <div class="card">
+        <h2>Phase 4: Visual Python 🎨 <span class="status">Coming soon</span></h2>
+        <p>Make drawings and animations with Turtle or simple games with Pygame Zero.</p>
+        <a class="btn disabled" href="#" aria-disabled="true" tabindex="-1">Not yet</a>
+      </div>
+
+      <div class="card">
+        <h2>Phase 5: Think Like a Programmer 🧠 <span class="status">Coming soon</span></h2>
+        <p>Learn debugging, planning, and writing cleaner code.</p>
+        <a class="btn disabled" href="#" aria-disabled="true" tabindex="-1">Not yet</a>
+      </div>
+
+      <div class="card">
+        <h2>Phase 6: Build Your Own Project 🚀 <span class="status">Coming soon</span></h2>
+        <p>Create a capstone project and show it off to friends/family.</p>
+        <a class="btn disabled" href="#" aria-disabled="true" tabindex="-1">Not yet</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Tip: Do a little bit each week. The goal is progress, not perfection. 🐛➡️✨</p>
+    </div>
+  </footer>
+</body>
+</html>
